@@ -57,6 +57,7 @@ after_success:
   - tox -e wheel
   - tox -e wheel-test
   - tox -e bdist
+  - tox -e upload
   - |
     if [[ $BDIST == "1" && $TRAVIS_PULL_REQUEST == "false" && ($TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG) ]]
     then
