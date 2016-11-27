@@ -54,6 +54,9 @@ install:
 script: tox -- --cov mitmproxy --cov pathod -v
 
 after_success:
+  - tox -e wheel
+  - tox -e wheel-test
+  - tox -e bdist
   - |
     if [[ $BDIST == "1" && $TRAVIS_PULL_REQUEST == "false" && ($TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG) ]]
     then
